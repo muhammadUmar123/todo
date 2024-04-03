@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const usePersistentFilterState = (defaultValue) => {
   const [filter, setFilter] = useState(defaultValue);
 
-  // Load filter state from AsyncStorage on component mount
+  
   useEffect(() => {
     const loadFilterState = async () => {
       try {
@@ -17,9 +17,8 @@ const usePersistentFilterState = (defaultValue) => {
       }
     };
     loadFilterState();
-  }, []); // Empty dependency array to run effect only once on component mount
-
-  // Save filter state to AsyncStorage whenever it changes
+  }, []); 
+  
   const setPersistentFilter = async (newFilter) => {
     try {
       await AsyncStorage.setItem('@filter', newFilter);
